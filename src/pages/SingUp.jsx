@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import { useSingUpUserMutation } from '../states/apiSlice';
+import { useGetUsersQuery } from '../states/apiSlice';
 
 function SingUp() {
   const [enterNewUser, { isError }] = useSingUpUserMutation();
@@ -11,16 +12,20 @@ function SingUp() {
   const [password2, setPassword2] = useState('')
   const [isAdmin, setIsAdmin] = useState('');
 
+
+  const { data: users } = useGetUsersQuery();
+
   function onSubmitForm(e) {
     e.preventDefault();
-    console.log(isAdmin.trim() === '');
-    console.log([true,true,true,false].every(int => int));
     if ([username, password, password2, isAdmin].some(int => int.trim() === '')) return alert('Enter All Values');
     if (password !== password2) return alert('password was incorrect');
 
-    enterNewUser({username,password,isAdmin});
+    if (users.some(user => user.username === username)) return alert('this username exist enter another one')
 
-    if(isError) return alert('failed to singing up');
+
+    enterNewUser({ username, password, isAdmin });
+
+    if (isError) return alert('failed to singing up');
 
     setUsername('')
     setPassword('')

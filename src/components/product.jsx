@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addProduct } from '../states/shopingCartSlice';
+// import { addProduct } from '../states/shopingCartSlice';
 import { cancelProduct, decreasProductCount, increasProductCount, sellProduct } from '../states/productsSlice';
 import { TrashIcon } from '../assets/icons';
 
@@ -12,7 +12,7 @@ function Product({ info }) {
     function onAddProduct() {
         if (!info.isSell) {
             dispatch(sellProduct(info))
-            dispatch(addProduct(info))
+            // dispatch(addProduct(info))
         }
     }
     return (

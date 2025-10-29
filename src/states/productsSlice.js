@@ -168,27 +168,27 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     sellProduct(state, action) {
-      const currentProduct = state.products.find(
+      const currentProduct = state.find(
         (product) => product.id === action.payload.id
       );
       currentProduct.isSell = true;
       currentProduct.count = 1;
     },
     cancelProduct(state, action) {
-      const currentProduct = state.products.find(
+      const currentProduct = state.find(
         (product) => product.id === action.payload.id
       );
       currentProduct.isSell = false;
       currentProduct.count = 0;
     },
     increasProductCount(state, action) {
-      const currentProduct = state.products.find(
+      const currentProduct = state.find(
         (product) => product.id === action.payload.id
       );
       currentProduct.count += 1;
     },
     decreasProductCount(state, action) {
-      const currentProduct = state.products.find(
+      const currentProduct = state.find(
         (product) => product.id === action.payload.id
       );
       currentProduct.count -= 1;

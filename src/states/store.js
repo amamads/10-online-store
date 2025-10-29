@@ -11,6 +11,7 @@ const persistCongig = {
   key: "root",
   storage,
   blacklist: ['products']
+  // blacklist: ['products','shopingCart']
 };
 
 const rootReducer = combineReducers({

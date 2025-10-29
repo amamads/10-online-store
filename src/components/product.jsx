@@ -10,20 +10,9 @@ import { TrashIcon } from '../assets/icons';
 
 function Product({ info }) {
     const cartItems = useSelector(s => s.shopingCart);
-    // console.log();
     const cartItem = cartItems.find(item => item.id === info.id);
-    // const cartHasThisItem = Boolean(cartItems.find(item => item.id === info.id));
-
 
     const dispatch = useDispatch();
-    // const cartItems = useSelector(s => s.shopingCart);
-    // console.log(cartItems);
-
-
-    function onAddProduct() {
-        // console.log(cartHasThisItem);
-        dispatch(addProductToCart(info))
-    }
 
     return (
         <div className='bg-gray-400 p-3 rounded-2xl grid gap-4'>
@@ -62,7 +51,7 @@ function Product({ info }) {
                     ) : (
                         <button
                             className='text-base'
-                            onClick={onAddProduct}
+                            onClick={() => dispatch(addProductToCart(info))}
                         >Add</button>
                     )
                     }

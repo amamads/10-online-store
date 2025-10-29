@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router'
-import { useSingUpUserMutation } from '../states/apiSlice';
-import { useGetUsersQuery } from '../states/apiSlice';
+import { enterNewUser } from '../states/userSlice';
 
 function SingUp() {
-  const [enterNewUser, { isError }] = useSingUpUserMutation();
+  const users = useSelector(state => state.userSlice.users);
+  const dispatch = useDispatch();
+  // const [enterNewUser, { isError }] = useSingUpUserMutation();
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('')
@@ -13,8 +15,6 @@ function SingUp() {
   const [isAdmin, setIsAdmin] = useState('');
 
 
-  const { data: users } = useGetUsersQuery();
-
   function onSubmitForm(e) {
     e.preventDefault();
     if ([username, password, password2, isAdmin].some(int => int.trim() === '')) return alert('Enter All Values');
@@ -22,10 +22,11 @@ function SingUp() {
 
     if (users.some(user => user.username === username)) return alert('this username exist enter another one')
 
-
-    enterNewUser({ username, password, isAdmin });
-
-    if (isError) return alert('failed to singing up');
+    dispatch(enterNewUser({
+      username,
+      password,
+      isAdmin: isAdmin === 'true' ? true : false
+    }));
 
     setUsername('')
     setPassword('')
@@ -35,7 +36,7 @@ function SingUp() {
     navigate('/login')
   }
   return (
-    <div className='w-1/2 mx-auto h-120 bg-gray-400 rounded-2xl '>
+    <div className='w-1/2 mx-auto h-120 bg-gray-200 dark:bg-gray-400 rounded-2xl '>
       <form action=""
         onSubmit={onSubmitForm}
         className='flex flex-col relative top-1/2 -translate-y-1/2 gap-7 items-center w-3/4 mx-auto'

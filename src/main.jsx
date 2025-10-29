@@ -11,6 +11,7 @@ import Products from './pages/Products.jsx'
 import Login from './pages/Login.jsx'
 import Dashbord from './pages/Dashbord.jsx'
 import SingUp from './pages/SingUp.jsx'
+import ShopingCart from './pages/ShopingCart.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/dashbord',
         element: <Dashbord />
+      },
+      {
+        path: '/shoping-cart',
+        element: <ShopingCart />
       },
     ]
   }

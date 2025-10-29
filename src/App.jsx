@@ -5,13 +5,14 @@ import { useSelector } from 'react-redux'
 
 function Layer() {
   const isDark = useSelector(state => state.webMode.isDark);
+  // console.log(useSelector(s => s));
 
-  useEffect(()=>{
-    window.addEventListener('keyup',e=>{
-      if(e.key === 'Escape') localStorage.clear();
+  useEffect(() => {
+    window.addEventListener('keyup', e => {
+      if (e.key === 'Escape') localStorage.clear();
     })
-  },[])
-  
+  }, [])
+
   return (
     <div id='body' className={`min-h-screen ${isDark ? 'dark' : ''}`}>
       <div className='max-w-400 mx-auto pb-10'>

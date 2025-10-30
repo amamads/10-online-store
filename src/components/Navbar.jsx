@@ -4,14 +4,21 @@ import { NavLink } from 'react-router'
 import { changeMode } from '../states/webModeSlice';
 
 import { CartIcon, DarkModeIcon } from '../assets/icons';
+import CartPopup from './cartPopup';
+import { useEffect, useRef, useState } from 'react';
+import { toggleShowPopup } from '../states/shopingCartSlice';
 
 function Navbar() {
     const dispatch = useDispatch();
     const { currentUser: { isAdmin }, isLogged } = useSelector(state => state.userSlice);
     const isDark = useSelector(state => state.webMode.isDark)
 
+    // const [showPopup, setShowPopup] = useState(false);
+    const showPopup = useSelector(s => s.shopingCart.showPopup)
+
+
     return (
-        <div className='dark:bg-gray-400 bg-gray-200 rounded-b-2xl'>
+        <div className='relative dark:bg-gray-400 bg-gray-200 rounded-b-2xl'>
             <nav className='flex items-center justify-between h-20 w-17/20 mx-auto'>
                 <div className='flex items-center gap-5'>
                     <NavLink
@@ -21,15 +28,22 @@ function Navbar() {
                     {isAdmin ? <NavLink className={({ isActive }) => isActive ? 'text-cyan-700 nav-link' : 'nav-link'} to='dashbord'>Dashbord</NavLink> : ''}
                 </div>
 
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center gap-4 relative'>
                     <button>{isLogged ? isAdmin ? 'Admin' : 'User' : 'Login'}</button>
 
-                    <NavLink
-                        className={({ isActive }) => isActive ? 'cart-icon text-cyan-700' : 'cart-icon'}
-                        to='/shoping-cart'
-                    >
-                        <CartIcon className='w-6' />
-                    </NavLink>
+                    <div>
+                        <button
+                            className='bg-transparent p-0'
+                            id='show-popup-btn'
+                            onClick={() => dispatch(toggleShowPopup())}
+                        >
+                            <CartIcon className='cart-icon text-black' />
+                        </button>
+
+                        <CartPopup
+                            className={showPopup ? '' : 'hidden'}
+                        />
+                    </div>
 
                     <button
                         onClick={() => dispatch(changeMode())}
@@ -39,6 +53,7 @@ function Navbar() {
                     </button>
                 </div>
             </nav>
+            {/* <CartPopup/> */}
         </div>
     )
 }

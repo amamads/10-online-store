@@ -8,20 +8,16 @@ import {
 } from '../states/shopingCartSlice';
 import { TrashIcon } from '../assets/icons';
 
-function Product({ info }) {
+function CartPopupProduct({ info,className }) {
     const cartItems = useSelector(s => s.shopingCart.cartItems);
     const cartItem = cartItems.find(item => item.id === info.id);
 
     const dispatch = useDispatch();
 
     return (
-        <div className='bg-gray-400 p-3 rounded-2xl grid gap-4'>
-            <div className='rounded-2xl overflow-hidden'>
-                {/* <img src={info.image} alt="product image" className='object-cover w-full' /> */}
-                <img src='asf' alt="product image" className='object-cover w-full' />
-            </div>
-            <div className='grid grid-cols-2 justify-items-center items-center'>
-                <p className="col-span-2 text-xl">{info.title}</p>
+        <div className={`bg-gray-400 p-3 grid gap-4 ${className}`}>
+            <div className='grid justify-items-center items-center'>
+                <p className="text-xl">{info.title}</p>
                 <p>Price: ${info.price}</p>
 
                 <div>
@@ -61,4 +57,4 @@ function Product({ info }) {
     )
 }
 
-export default Product
+export default CartPopupProduct

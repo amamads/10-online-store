@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import Product from "../components/product"
 
 function ShopingCart() {
-  const cartItems = useSelector(s => s.shopingCart)
+  const cartItems = useSelector(s => s.shopingCart.cartItems)
 
   return (
     <div>

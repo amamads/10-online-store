@@ -9,5 +9,8 @@ const webModeSlice = createSlice({
     },
   },
 });
+
+export const selectIsDark = s => s.webMode.isDark
+
 export const {changeMode} = webModeSlice.actions;
 export default webModeSlice.reducer

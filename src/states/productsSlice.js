@@ -128,4 +128,6 @@ const productsSlice = createSlice({
   initialState,
 });
 
+export const selectAllProducts = s => s.products
+
 export default productsSlice.reducer;

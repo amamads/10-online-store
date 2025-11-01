@@ -1,20 +1,20 @@
 // import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router'
-import { changeMode } from '../states/webModeSlice';
+import { changeMode, selectIsDark } from '../states/webModeSlice';
 
 import { CartIcon, DarkModeIcon } from '../assets/icons';
 import CartPopup from './cartPopup';
 import { useEffect, useRef, useState } from 'react';
-import { toggleShowPopup } from '../states/shopingCartSlice';
+import { selectShowPopup, toggleShowPopup } from '../states/shopingCartSlice';
+import { selectIsAdmin, selectIsLogged } from '../states/userSlice';
 
 function Navbar() {
     const dispatch = useDispatch();
-    const { currentUser: { isAdmin }, isLogged } = useSelector(state => state.userSlice);
-    const isDark = useSelector(state => state.webMode.isDark)
-
-    // const [showPopup, setShowPopup] = useState(false);
-    const showPopup = useSelector(s => s.shopingCart.showPopup)
+    const isAdmin = useSelector(selectIsAdmin)
+    const isLogged = useSelector(selectIsLogged)
+    const isDark = useSelector(selectIsDark)
+    const showPopup = useSelector(selectShowPopup)
 
 
     return (

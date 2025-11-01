@@ -63,6 +63,13 @@ const userSlice = createSlice({
     },
   },
 });
+
+export const selectAllUsers = s => s.usersSlice.users
+export const selectCurrentUser = s => s.usersSlice.currentUser
+export const selectIsAdmin = s => s.usersSlice.currentUser.isAdmin
+export const selectIsLogged = s => s.usersSlice.isLogged
+
+
 export const { logInUser, logOutUser, enterNewUser } = userSlice.actions;
 
 export default userSlice.reducer;

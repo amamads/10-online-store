@@ -1,14 +1,15 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router'
-import { logInUser, logOutUser } from '../states/userSlice'
+import { logInUser, logOutUser, selectAllUsers, selectIsLogged } from '../states/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 function SingIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const {isLogged,users} = useSelector(s => s.userSlice);
-    
+  const users = useSelector(selectAllUsers);
+  const isLogged = useSelector(selectIsLogged);
+
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')

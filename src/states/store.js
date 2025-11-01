@@ -27,7 +27,7 @@ const persistCongig = {
 
 const rootReducer = combineReducers({
   webMode: webModeReducer,
-  userSlice: userReducer,
+  usersSlice: userReducer,
   products: productsReducer,
   shopingCart: shopingCartReducer
 });

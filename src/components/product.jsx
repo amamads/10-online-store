@@ -1,17 +1,16 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     addProductToCart,
     decreasProductCount,
     increasProductCount,
-    removeProduct
+    removeProduct,
+    selectCartItems
 } from '../states/shopingCartSlice';
 import { TrashIcon } from '../assets/icons';
 
 function Product({ info }) {
-    const cartItems = useSelector(s => s.shopingCart.cartItems);
+    const cartItems = useSelector(selectCartItems);
     const cartItem = cartItems.find(item => item.id === info.id);
-
     const dispatch = useDispatch();
 
     return (

@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux"
 import Product from "../components/product"
+import { selectCartItems, selectSumPrices } from "../states/shopingCartSlice"
 
 function ShopingCart() {
-  const cartItems = useSelector(s => s.shopingCart.cartItems)
+  const cartItems = useSelector(selectCartItems)
+  const sumPrices = useSelector(selectSumPrices)
+
 
   return (
     <div>
@@ -13,6 +16,11 @@ function ShopingCart() {
             <h1 className="big-title text-nowrap text-8xl">cart is empty</h1> :
             cartItems.map(product => (<Product info={product} key={product.id} />))
         }
+      </div>
+
+      <div className="h-20"> </div>
+      <div className="bg-gray-400 h-20 w-screen fixed bottom-0 left-0 text-center">
+        <h1>Sum Prices: {sumPrices}</h1>
       </div>
     </div>
   )

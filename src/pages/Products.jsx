@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux"
 import Product from "../components/product"
+import { selectAllProducts } from "../states/productsSlice"
 
 function Products() {
-  const productsInfo = useSelector(s => s.products)
+  const productsInfo = useSelector(selectAllProducts)
 
   return (
     <div>

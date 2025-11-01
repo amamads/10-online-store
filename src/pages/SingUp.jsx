@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router'
-import { enterNewUser } from '../states/userSlice';
+import { enterNewUser, selectAllUsers } from '../states/userSlice';
 
 function SingUp() {
-  const users = useSelector(state => state.userSlice.users);
+  const users = useSelector(selectAllUsers);
   const dispatch = useDispatch();
-  // const [enterNewUser, { isError }] = useSingUpUserMutation();
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('')

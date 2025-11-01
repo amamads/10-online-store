@@ -4,12 +4,13 @@ import {
     addProductToCart,
     decreasProductCount,
     increasProductCount,
-    removeProduct
+    removeProduct,
+    selectCartItems
 } from '../states/shopingCartSlice';
 import { TrashIcon } from '../assets/icons';
 
 function CartPopupProduct({ info,className }) {
-    const cartItems = useSelector(s => s.shopingCart.cartItems);
+    const cartItems = useSelector(selectCartItems);
     const cartItem = cartItems.find(item => item.id === info.id);
 
     const dispatch = useDispatch();

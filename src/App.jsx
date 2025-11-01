@@ -2,9 +2,10 @@ import React, { useEffect } from 'react'
 import { Outlet } from 'react-router'
 import Navbar from './components/Navbar'
 import { useSelector } from 'react-redux'
+import { selectIsDark } from './states/webModeSlice';
 
 function Layer() {
-  const isDark = useSelector(state => state.webMode.isDark);
+  const isDark = useSelector(selectIsDark);
   // console.log(useSelector(s => s));
 
   useEffect(() => {

@@ -2,13 +2,13 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CartPopupProduct from './CartPopupProduct'
 import { Link } from 'react-router'
-import { toggleShowPopup } from '../states/shopingCartSlice'
+import { selectCartItems, selectShowPopup, toggleShowPopup } from '../states/shopingCartSlice'
 
 function CartPopup({ className }) {
-  const cartItems = useSelector(s => s.shopingCart.cartItems)
+  const cartItems = useSelector(selectCartItems)
+  const showPopup = useSelector(selectShowPopup)
 
   const dispatch = useDispatch();
-  const showPopup = useSelector(s => s.shopingCart.showPopup)
 
 
 

@@ -1,4 +1,3 @@
-// import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router'
 import { changeMode, selectIsDark } from '../states/webModeSlice';
@@ -22,9 +21,22 @@ function Navbar() {
                 <div className='flex items-center gap-5'>
                     <NavLink
                         className={({ isActive }) => isActive ? 'text-cyan-700 nav-link' : 'nav-link'}
-                        to='/'>Products</NavLink>
-                    <NavLink className={({ isActive }) => isActive ? 'text-cyan-700 nav-link' : 'nav-link'} to='/login'>Login</NavLink>
-                    {isAdmin ? <NavLink className={({ isActive }) => isActive ? 'text-cyan-700 nav-link' : 'nav-link'} to='dashbord'>Dashbord</NavLink> : ''}
+                        to='/'
+                    >Home</NavLink>
+                    <NavLink
+                        className={({ isActive }) => isActive ? 'text-cyan-700 nav-link' : 'nav-link'}
+                        to='/products'
+                    >Products</NavLink>
+                    <NavLink
+                        className={({ isActive }) => isActive ? 'text-cyan-700 nav-link' : 'nav-link'}
+                        to='/login'
+                    >Login</NavLink>
+                    {isAdmin ?
+                        <NavLink 
+                        className={({ isActive }) => isActive ? 'text-cyan-700 nav-link' : 'nav-link'}
+                         to='dashboard'
+                         >Dashboard</NavLink> :
+                        ''}
                 </div>
 
                 <div className='flex items-center gap-4 relative'>
@@ -52,7 +64,6 @@ function Navbar() {
                     </button>
                 </div>
             </nav>
-            {/* <CartPopup/> */}
         </div>
     )
 }

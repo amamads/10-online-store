@@ -6,7 +6,6 @@ function ShopingCart() {
   const cartItems = useSelector(selectCartItems)
   const sumPrices = useSelector(selectSumPrices)
 
-
   return (
     <div>
       <h1 className="text-center uppercase mb-10 text-4xl">Shoping Cart</h1>

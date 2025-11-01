@@ -9,35 +9,24 @@ import { PersistGate } from 'redux-persist/integration/react'
 import App from './App.jsx'
 import Products from './pages/Products.jsx'
 import Login from './pages/Login.jsx'
-import Dashbord from './pages/Dashbord.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 import SingUp from './pages/SingUp.jsx'
 import ShopingCart from './pages/ShopingCart.jsx'
+import Home from './pages/Home.jsx'
+import ProductDetails from './pages/ProductDetails.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      {
-        path: '/',
-        element: <Products />
-      },
-      {
-        path: '/login',
-        element: <Login />
-      },
-      {
-        path: '/sing-up',
-        element: <SingUp />
-      },
-      {
-        path: '/dashbord',
-        element: <Dashbord />
-      },
-      {
-        path: '/shoping-cart',
-        element: <ShopingCart />
-      },
+      { path: '/', element: <Home /> },
+      { path: '/products', element: <Products />, },
+      { path: '/products/:productId', element: <ProductDetails /> },
+      { path: '/login', element: <Login /> },
+      { path: '/singUp', element: <SingUp /> },
+      { path: '/dashboard', element: <Dashboard /> },
+      { path: '/shoping-cart', element: <ShopingCart /> }
     ]
   }
 ])

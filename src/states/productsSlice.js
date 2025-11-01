@@ -129,5 +129,6 @@ const productsSlice = createSlice({
 });
 
 export const selectAllProducts = s => s.products
+export const selectProductById = (state, productId) => state.products.find(product => product.id === productId)
 
 export default productsSlice.reducer;

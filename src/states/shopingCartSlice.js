@@ -53,6 +53,8 @@ const shopingCartSlice = createSlice({
 export const selectCartItems = s => s.shopingCart.cartItems
 export const selectShowPopup = s => s.shopingCart.showPopup
 export const selectSumPrices = s => s.shopingCart.sumPrices
+export const selectCartItemById =
+  (state, itemId) => state.shopingCart.cartItems.find(item => item.id === itemId)
 
 
 export const {

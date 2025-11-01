@@ -4,8 +4,7 @@ import { NavLink } from 'react-router'
 import { changeMode, selectIsDark } from '../states/webModeSlice';
 
 import { CartIcon, DarkModeIcon } from '../assets/icons';
-import CartPopup from './cartPopup';
-import { useEffect, useRef, useState } from 'react';
+import CartPopup from './CartPopup';
 import { selectShowPopup, toggleShowPopup } from '../states/shopingCartSlice';
 import { selectIsAdmin, selectIsLogged } from '../states/userSlice';
 

@@ -19,8 +19,8 @@ const shopingCartTrasnform = createTransform(
 )
 const dashboardTrasnform = createTransform(
   (inBoundState, key) => {
-    const { showModule, ...rest } = inBoundState;
-    return rest;
+    // const { dashboardTest, ...rest } = inBoundState;
+    return
   },
   (outBoundeState, key) => outBoundeState,
   { whitelist: ['dashboard'] }
@@ -30,7 +30,7 @@ const persistCongig = {
   key: "root",
   storage,
   blacklist: ['products'],
-  transforms: [shopingCartTrasnform,dashboardTrasnform],
+  transforms: [shopingCartTrasnform, dashboardTrasnform],
 };
 
 const rootReducer = combineReducers({
@@ -38,7 +38,7 @@ const rootReducer = combineReducers({
   usersSlice: userReducer,
   products: productsReducer,
   shopingCart: shopingCartReducer,
-  dashboard:dashboardReducer
+  dashboard: dashboardReducer
 });
 
 const persistedReducer = persistReducer(persistCongig, rootReducer);

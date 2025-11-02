@@ -169,9 +169,7 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     addProduct(state, action) {
-      console.log(action.payload);
       state = state.push({ ...action.payload, id: nanoid() })
-      console.log(state);
     }
   }
 });

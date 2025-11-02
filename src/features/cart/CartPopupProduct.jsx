@@ -1,4 +1,4 @@
-import ProductBtns from './ProductBtns';
+import ProductBtns from '../../components/ProductBtns';
 
 function CartPopupProduct({ info, className }) {
     return (

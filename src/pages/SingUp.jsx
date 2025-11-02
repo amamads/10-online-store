@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router'
-import { enterNewUser, selectAllUsers } from '../states/userSlice';
+import { enterNewUser, selectAllUsers } from '../features/users/userSlice';
 import useInput from '../hooks/useInput';
 
 function SingUp() {

@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux"
 import Product from "../components/product"
-import { selectCartItems, selectSumPrices } from "../states/shopingCartSlice"
+import { selectCartItems, selectSumPrices } from "../features/cart/cartSlice"
 
-function ShopingCart() {
+function Cart() {
   const cartItems = useSelector(selectCartItems)
   const sumPrices = useSelector(selectSumPrices)
 
@@ -25,4 +25,4 @@ function ShopingCart() {
   )
 }
 
-export default ShopingCart
+export default Cart

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectShowAddProductModule, toggleAddProductModule } from '../states/dashboardSlice';
-import useInput from '../hooks/useInput'
-import { addProduct } from '../states/productsSlice';
-import Module from './Modle';
+import { selectShowAddProductModule, toggleAddProductModule } from './dashboardSlice';
+import useInput from '../../hooks/useInput'
+import { addProduct } from '../products/productsSlice';
+import Module from '../../components/Modle';
 
 function AddProductModule({ }) {
   const showModule = useSelector(selectShowAddProductModule)

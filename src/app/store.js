@@ -2,11 +2,11 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { createTransform, persistReducer, persistStore } from "redux-persist";
 
-import userReducer from './userSlice';
+import userReducer from '../features/users/userSlice';
 import webModeReducer from "./webModeSlice";
-import productsReducer from './productsSlice';
-import shopingCartReducer from './shopingCartSlice'
-import dashboardReducer from './dashboardSlice'
+import productsReducer from '../features/products/productsSlice';
+import cartReducer from '../features/cart/cartSlice'
+import dashboardReducer from '../features/dashboard/dashboardSlice'
 
 
 const shopingCartTrasnform = createTransform(
@@ -37,7 +37,7 @@ const rootReducer = combineReducers({
   webMode: webModeReducer,
   usersSlice: userReducer,
   products: productsReducer,
-  shopingCart: shopingCartReducer,
+  shopingCart: cartReducer,
   dashboard: dashboardReducer
 });
 

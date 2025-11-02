@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router'
-import { selectProductById } from '../states/productsSlice';
+import { selectProductById } from '../features/products/productsSlice';
 import { Link } from 'react-router';
 import ProductBtns from '../components/ProductBtns';
 function ProductDetails() {

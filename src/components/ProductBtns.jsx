@@ -6,7 +6,7 @@ import {
     increasProductCount,
     removeProduct,
     selectCartItemById
-} from '../states/shopingCartSlice';
+} from '../features/cart/cartSlice';
 
 
 function ProductBtns({ info }) {

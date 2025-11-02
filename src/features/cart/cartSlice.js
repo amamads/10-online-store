@@ -16,8 +16,8 @@ const initialState = {
   sumPrices: 0
 }
 
-const shopingCartSlice = createSlice({
-  name: 'shopingCartSlice',
+const cartSlice = createSlice({
+  name: 'cartSlice',
   // initialState: [],
   initialState,
   reducers: {
@@ -63,7 +63,7 @@ export const {
   increasProductCount,
   decreasProductCount,
   toggleShowPopup
-} = shopingCartSlice.actions;
+} = cartSlice.actions;
 
 
-export default shopingCartSlice.reducer
+export default cartSlice.reducer

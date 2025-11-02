@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router'
-import { changeMode, selectIsDark } from '../states/webModeSlice';
-
+import { changeMode, selectIsDark } from '../app/webModeSlice';
 import { CartIcon, DarkModeIcon } from '../assets/icons';
-import CartPopup from './CartPopup';
-import { selectShowPopup, toggleShowPopup } from '../states/shopingCartSlice';
-import { selectIsAdmin, selectIsLogged } from '../states/userSlice';
+import CartPopup from '../features/cart/CartPopup';
+import { selectShowPopup, toggleShowPopup } from '../features/cart/cartSlice';
+import { selectIsAdmin, selectIsLogged } from '../features/users/userSlice';
 
 function Navbar() {
     const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import CartPopupProduct from './CartPopupProduct'
 import { Link } from 'react-router'
-import { selectCartItems, selectShowPopup, toggleShowPopup } from '../states/shopingCartSlice'
-import useCloseModule from '../hooks/useCloseModule'
+import { selectCartItems, selectShowPopup, toggleShowPopup } from './cartSlice'
+import useCloseModule from '../../hooks/useCloseModule'
 
 function CartPopup({ className }) {
   const cartItems = useSelector(selectCartItems)

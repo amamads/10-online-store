@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router'
-import { logInUser, logOutUser, selectAllUsers, selectIsLogged } from '../states/userSlice'
+import { logInUser, logOutUser, selectAllUsers, selectIsLogged } from '../features/users/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import useInput from '../hooks/useInput';
 

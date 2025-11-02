@@ -21,6 +21,7 @@ function ProductBtns({ info }) {
                     {
                         cartItem.count === 1 ? (
                             <button
+                                id='remove-product-btn'
                                 onClick={() => dispatch(removeProduct(info))}
                             >
                                 <TrashIcon className="w-4" />

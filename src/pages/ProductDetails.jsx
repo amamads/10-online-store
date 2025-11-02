@@ -21,6 +21,7 @@ function ProductDetails() {
                     <p className='text-3xl'>Price : ${info.price}</p>
                     <ProductBtns info={info} />
                 </div>
+                <p className='w-1/2 text-xl text-center'>{info.details}</p>
 
                 <Link to='/products' className='text-3xl border rounded-2xl px-5 py-2 hover:text-white hover:bg-blue-700 duration-300'>Bask</Link>
             </div>

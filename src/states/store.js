@@ -6,30 +6,39 @@ import userReducer from './userSlice';
 import webModeReducer from "./webModeSlice";
 import productsReducer from './productsSlice';
 import shopingCartReducer from './shopingCartSlice'
+import dashboardReducer from './dashboardSlice'
 
 
 const shopingCartTrasnform = createTransform(
   (inBoundState, key) => {
-    // return inBoundState
     const { showPopup, ...rest } = inBoundState;
     return rest;
   },
   (outBoundeState, key) => outBoundeState,
   { whitelist: ['shopingCart'] }
 )
+const dashboardTrasnform = createTransform(
+  (inBoundState, key) => {
+    const { showModule, ...rest } = inBoundState;
+    return rest;
+  },
+  (outBoundeState, key) => outBoundeState,
+  { whitelist: ['dashboard'] }
+)
 
 const persistCongig = {
   key: "root",
   storage,
   blacklist: ['products'],
-  transforms: [shopingCartTrasnform],
+  transforms: [shopingCartTrasnform,dashboardTrasnform],
 };
 
 const rootReducer = combineReducers({
   webMode: webModeReducer,
   usersSlice: userReducer,
   products: productsReducer,
-  shopingCart: shopingCartReducer
+  shopingCart: shopingCartReducer,
+  dashboard:dashboardReducer
 });
 
 const persistedReducer = persistReducer(persistCongig, rootReducer);
